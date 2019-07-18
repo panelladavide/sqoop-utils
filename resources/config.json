@@ -2,7 +2,7 @@
     {
         "table_name": "prova",
         "script": true,
-        "script_name": "prova_script.sh"
+        "script_name": "test_script.sh"
     },
     {
         "table_name": "prova",
