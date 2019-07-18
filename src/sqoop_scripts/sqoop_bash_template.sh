@@ -1,8 +1,8 @@
 # NOME TABELLA
-table_name=($(echo "%s" | awk -F"--hive-table" '{print $2}' | awk -F"--target-dir" '{print $1}'))
+table_name=($(echo "$SQOOP_CMD" | awk -F"--hive-table" '{print $2}' | awk -F"--target-dir" '{print $1}'))
 
 echo "###### ESECUZIONE COMANDO SQOOP #####"
-%s
+$SQOOP_CMD
 
 echo "###### ELABORAZIONE OUTPUT #######"
 
@@ -27,6 +27,6 @@ END {
     }
 }' tmp/output > tmp/formatted_output
 echo "creo il file output parziale"
-tr ' ' ',' < tmp/formatted_output > %s/output_$table_name.csv
+tr ' ' ',' < tmp/formatted_output > $OUTPUT_DIR/output_$table_name.csv
 echo "append to total_output.csv"
-sed 1d %s/output_$table_name.csv >> %s/total_output.csv
+sed 1d $OUTPUT_DIR/output_$table_name.csv >> $OUTPUT_DIR/total_output.csv

@@ -41,9 +41,11 @@ def execute_sqoop_scripts(file_list, BASE_DIR):
             # 1 - si ricava il nome della tabella target dal comando sqoop
             # 2 - esegue il comando sqoop
             # 3 - elabora il log e appende nel file total_output.csv il risultato ricavato dal log di sqoop
+            
             bash_template_cmd = read_bash_template(BASH_TEMPLATE_FILE)
+            
+            bash_cmd = bash_template_cmd.replace('$SQOOP_CMD', sqoop_cmd).replace('$OUTPUT_DIR', output_dir)
 
-            bash_cmd = bash_template_cmd % (sqoop_cmd, sqoop_cmd, output_dir,output_dir, output_dir)
             #print(bash_cmd)
             os.system(bash_cmd)
         f.close()
