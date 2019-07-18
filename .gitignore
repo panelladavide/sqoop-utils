@@ -106,5 +106,6 @@ venv.bak/
 # editor
 .vscode
 
-# ignore sqoop script
-resources/scripts
+# ignore sqoop script except the test script
+resources/scripts/*
+!resources/scripts/test_script.sh
