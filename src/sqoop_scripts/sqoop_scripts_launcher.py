@@ -12,9 +12,7 @@ def execute_sqoop_scripts(file_list, BASE_DIR):
     os.system("mkdir -p " + output_dir)
 
     # crea la cartella temporanea
-    # TODO: fare in modo che lo script bash utilizzi questa tmp in modo dinamico
-    # TODO: creare tmp in questo modo: os.path.join(BASE_DIR, "tmp")
-    tmp_dir = os.path.join(os.getcwd(), "tmp")
+    tmp_dir = os.path.join(BASE_DIR, "tmp")
     os.system("mkdir -p " + tmp_dir)
 
     # crea il file total_output.csv con l'intestazione
@@ -44,7 +42,7 @@ def execute_sqoop_scripts(file_list, BASE_DIR):
             
             bash_template_cmd = read_bash_template(BASH_TEMPLATE_FILE)
             
-            bash_cmd = bash_template_cmd.replace('$SQOOP_CMD', sqoop_cmd).replace('$OUTPUT_DIR', output_dir)
+            bash_cmd = bash_template_cmd.replace('$SQOOP_CMD', sqoop_cmd).replace('$OUTPUT_DIR', output_dir).replace('$TMP', tmp_dir)
 
             #print(bash_cmd)
             os.system(bash_cmd)
