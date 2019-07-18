@@ -1,6 +1,6 @@
 import json
 import os
-from sqoop_scripts_launcher import execute_sqoop_scripts
+from sqoop_scripts.sqoop_scripts_launcher import execute_sqoop_scripts
 
 CONFIG_FILE_NAME = 'config.json'
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))

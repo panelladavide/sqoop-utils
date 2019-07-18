@@ -4,7 +4,7 @@ import time
 # esegue gli script sqoop dai percorsi passati
 def execute_sqoop_scripts(file_list, BASE_DIR):
 
-    BASH_TEMPLATE_FILE = os.path.join(BASE_DIR, 'src', 'sqoop_bash_template.sh')
+    BASH_TEMPLATE_FILE = os.path.join(BASE_DIR, 'src', 'sqoop_scripts', 'sqoop_bash_template.sh')
 
     # crea la cartella results dove verranno inseriti i file di output
     current_millis = int(round(time.time() * 1000))
