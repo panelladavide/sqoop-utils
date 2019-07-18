@@ -1,0 +1,16 @@
+[
+    {
+        "table_name": "prova",
+        "script": true,
+        "script_name": "prova_script.sh"
+    },
+    {
+        "table_name": "prova",
+        "script": false,
+        "properties": {
+            "table_name": "tabella",
+            "database_url": "url01",
+            "database": "db01"
+        }
+    }
+]
