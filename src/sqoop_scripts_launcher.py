@@ -6,8 +6,18 @@ def execute_sqoop_scripts(file_list, output_base_path):
 
     # crea la cartella results dove verranno inseriti i file di output
     current_millis = int(round(time.time() * 1000))
-    output_dir = os.path.join(DIR_NAME, "results", current_millis)
+    output_dir = os.path.join(output_base_path, "results", str(current_millis))
     os.system("mkdir -p " + output_dir)
+
+    # crea la cartella temporanea
+    # TODO: fare in modo che lo script bash utilizzi questa tmp in modo dinamico
+    # TODO: creare tmp in questo modo: os.path.join(output_base_path, "tmp")
+    tmp_dir = os.path.join(os.getcwd(), "tmp")
+    os.system("mkdir -p " + tmp_dir)
+
+    # crea il file total_output.csv con l'intestazione
+    output_csv = os.path.join(output_dir, 'total_output.csv')
+    os.system('echo "table_name,Mapinputrecords,Mapoutputrecords" > ' + output_csv)
 
     # Cicla la lista passata
     for file in file_list:

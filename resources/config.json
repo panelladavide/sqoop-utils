@@ -5,6 +5,11 @@
         "script_name": "test_script.sh"
     },
     {
+        "table_name": "prova2",
+        "script": true,
+        "script_name": "test_script.sh"
+    },
+    {
         "table_name": "prova",
         "script": false,
         "properties": {

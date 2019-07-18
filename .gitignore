@@ -112,3 +112,7 @@ resources/scripts/*
 
 # example folder
 sqoop_output_example
+
+# app files
+results
+tmp
