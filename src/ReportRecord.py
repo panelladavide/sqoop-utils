@@ -1,0 +1,16 @@
+class ReportRecord:
+    # table_name
+    # db_name
+    # db_type
+    # job_type
+    # job_date
+    # count_before
+    # count_before_timestamp
+    # job_start_timestamp
+    # input_records
+    # output_records
+    # transferred_bytes
+    # job_end_timestamp
+    # count_after
+    # count_after_timestamp
+    # output_table_fields
