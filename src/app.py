@@ -8,7 +8,7 @@ CONFIG_PATH = os.path.join(BASE_DIR, 'resources', CONFIG_FILE_NAME)
 SCRIPT_FOLDER = os.path.join(BASE_DIR, 'resources', 'scripts')
 
 def readJsonFile(file_path):
-    with open(file_path) as json_file:
+    with open(file_path, 'r') as json_file:
         return json.load(json_file)
 
 def main():

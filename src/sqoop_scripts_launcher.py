@@ -2,22 +2,28 @@ import os
 import time
 
 # esegue gli script sqoop dai percorsi passati
-def execute_sqoop_scripts(file_list, output_base_path):
+def execute_sqoop_scripts(file_list, BASE_DIR):
+
+    BASH_TEMPLATE_FILE = os.path.join(BASE_DIR, 'src', 'sqoop_bash_template.sh')
 
     # crea la cartella results dove verranno inseriti i file di output
     current_millis = int(round(time.time() * 1000))
-    output_dir = os.path.join(output_base_path, "results", str(current_millis))
+    output_dir = os.path.join(BASE_DIR, "results", str(current_millis))
     os.system("mkdir -p " + output_dir)
 
     # crea la cartella temporanea
     # TODO: fare in modo che lo script bash utilizzi questa tmp in modo dinamico
-    # TODO: creare tmp in questo modo: os.path.join(output_base_path, "tmp")
+    # TODO: creare tmp in questo modo: os.path.join(BASE_DIR, "tmp")
     tmp_dir = os.path.join(os.getcwd(), "tmp")
     os.system("mkdir -p " + tmp_dir)
 
     # crea il file total_output.csv con l'intestazione
     output_csv = os.path.join(output_dir, 'total_output.csv')
     os.system('echo "table_name,Mapinputrecords,Mapoutputrecords" > ' + output_csv)
+
+    def read_bash_template(file_path):
+        with open(file_path, 'r') as template_file:
+            return template_file.read() 
 
     # Cicla la lista passata
     for file in file_list:
@@ -35,41 +41,7 @@ def execute_sqoop_scripts(file_list, output_base_path):
             # 1 - si ricava il nome della tabella target dal comando sqoop
             # 2 - esegue il comando sqoop
             # 3 - elabora il log e appende nel file total_output.csv il risultato ricavato dal log di sqoop
-            bash_template_cmd = """
-            
-            # NOME TABELLA
-            table_name=($(echo "%s" | awk -F"--hive-table" '{print $2}' | awk -F"--target-dir" '{print $1}'))
-            
-            echo "###### ESECUZIONE COMANDO SQOOP #####"
-            %s
-            
-            echo "###### ELABORAZIONE OUTPUT #######"
-            
-            echo "table_name "$table_name > tmp/output
-            echo "faccio il sed"
-            sed -n '/completed successfully/,/Transferred/p' tmp/log | sed -n '/Map input records/,/Map output records/p' tmp/log | tr -d '\t\040' | tr '=' ' ' >> tmp/output
-            echo "faccio il trasposto"
-            awk '
-            {
-                for (i=1; i<=NF; i++)  {
-                    a[NR,i] = $i
-                }
-            }
-            NF>p { p = NF }
-            END {
-                for(j=1; j<=p; j++) {
-                    str=a[1,j]
-                    for(i=2; i<=NR; i++){
-                        str=str" "a[i,j];
-                    }
-                    print str
-                }
-            }' tmp/output > tmp/formatted_output
-            echo "creo il file output parziale"
-            tr ' ' ',' < tmp/formatted_output > %s/output_$table_name.csv
-            echo "append to total_output.csv"
-            sed 1d %s/output_$table_name.csv >> %s/total_output.csv
-            """
+            bash_template_cmd = read_bash_template(BASH_TEMPLATE_FILE)
 
             bash_cmd = bash_template_cmd % (sqoop_cmd, sqoop_cmd, output_dir,output_dir, output_dir)
             #print(bash_cmd)
