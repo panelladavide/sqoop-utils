@@ -1,5 +1,6 @@
 import os
 import shutil
+import csv
 import subprocess
 from sqoop_utils import helpers, script_utils
 
