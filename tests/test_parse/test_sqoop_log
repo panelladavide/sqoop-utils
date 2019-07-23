@@ -1,4 +1,3 @@
-
 blablabla --hive-table nome_tabella_di_prova --target-dir blablabla
 Warning: /opt/cloudera/parcels/CDH-5.15.1-1.cdh5.15.1.p0.4/bin/../lib/sqoop/../accumulo does not exist! Accumulo imports will fail.
 Please set $ACCUMULO_HOME to the root of your Accumulo installation.

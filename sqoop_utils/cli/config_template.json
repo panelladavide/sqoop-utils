@@ -1,0 +1,17 @@
+[
+    {
+        "standalone": true,
+        "description": "Example of standalone shell script",
+        "script_name": "example_sqoop_script.sh"
+    },
+    {
+        "standalone": false,
+        "description": "Example of sqoop script manual configuration",
+        "data": {
+            "table_source": "table01",
+            "table_destination": "table01",
+            "database_url": "url01",
+            "database_type": "db01"
+        }
+    }
+]

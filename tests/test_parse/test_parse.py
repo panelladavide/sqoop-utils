@@ -1,5 +1,6 @@
 from unittest import TestCase
 from sqoop_utils import helpers
+from sqoop_utils import script_utils
 import os
 import subprocess
 
@@ -21,4 +22,9 @@ class TestParse(TestCase):
         content = helpers.read_plain(self.TEST_LOG_FILE)
         to_match_output = '\n'.join(self.child_process.stdout.split('\n')[1:])
         assert to_match_output == content, "stdout doesn't match the expected result"
+
+    def test03(self):
+        (m_inputs, m_outputs) = script_utils.parse_output(self.child_process.stdout)
+        assert m_inputs == 88
+        assert m_outputs == 88
         
