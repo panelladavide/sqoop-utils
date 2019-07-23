@@ -106,10 +106,6 @@ venv.bak/
 # editor
 .vscode
 
-# ignore sqoop script except the test script
-resources/scripts/*
-!resources/scripts/test_script.sh
-
 # example folder
 sqoop_output_example
 

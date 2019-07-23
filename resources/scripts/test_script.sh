@@ -1,1 +1,0 @@
-echo "--hive-import --create-hive-table --hive-overwrite --direct --hive-table PMCO_tmp  --target-dir=/user/hive/warehouse/PMCO_tmp --delete-target-dir" && cat ~/test_sqoop_log
