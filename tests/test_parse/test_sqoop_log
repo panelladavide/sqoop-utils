@@ -1,0 +1,95 @@
+
+blablabla --hive-table nome_tabella_di_prova --target-dir blablabla
+Warning: /opt/cloudera/parcels/CDH-5.15.1-1.cdh5.15.1.p0.4/bin/../lib/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+19/07/16 16:06:51 INFO sqoop.Sqoop: Running Sqoop version: 1.4.6-cdh5.15.1
+19/07/16 16:06:51 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+19/07/16 16:06:51 INFO tool.BaseSqoopTool: Using Hive-specific delimiters for output. You can override
+19/07/16 16:06:51 INFO tool.BaseSqoopTool: delimiters with --fields-terminated-by, etc.
+19/07/16 16:06:51 WARN tool.BaseSqoopTool: It seems that you're doing hive import directly into default
+19/07/16 16:06:51 WARN tool.BaseSqoopTool: hive warehouse directory which is not supported. Sqoop is
+19/07/16 16:06:51 WARN tool.BaseSqoopTool: firstly importing data into separate directory and then
+19/07/16 16:06:51 WARN tool.BaseSqoopTool: inserting data into hive. Please consider removing
+19/07/16 16:06:51 WARN tool.BaseSqoopTool: --target-dir or --warehouse-dir into /user/hive/warehouse in
+19/07/16 16:06:51 WARN tool.BaseSqoopTool: case that you will detect any issues.
+19/07/16 16:06:51 WARN sqoop.ConnFactory: Parameter --driver is set to an explicit driver however appropriate connection manager is not being set (via --connection-manager). Sqoop is going to fall back to org.apache.sqoop.manager.GenericJdbcManager. Please specify explicitly which connection manager should be used next time.
+19/07/16 16:06:51 INFO manager.SqlManager: Using default fetchSize of 1000
+19/07/16 16:06:51 INFO tool.CodeGenTool: Beginning code generation
+19/07/16 16:06:51 INFO manager.SqlManager: Executing SQL statement: select MANDT, STRAT, ZAEHL, ZEIEH, LEIEH, ZYKZT, ZYKLS, OFFZT, OFFLS, HIERA, PUFFP, PUFFN, PERKN, EROEF from SOURCE_DB.T351P  where  (1 = 0) 
+19/07/16 16:06:51 INFO manager.SqlManager: Executing SQL statement: select MANDT, STRAT, ZAEHL, ZEIEH, LEIEH, ZYKZT, ZYKLS, OFFZT, OFFLS, HIERA, PUFFP, PUFFN, PERKN, EROEF from SOURCE_DB.T351P  where  (1 = 0) 
+19/07/16 16:06:51 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /opt/cloudera/parcels/CDH/lib/hadoop-mapreduce
+Note: /tmp/sqoop-hdfs/compile/6b2ae7a673f1ef30d4d55d471f7d63db/QueryResult.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+19/07/16 16:06:52 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-hdfs/compile/6b2ae7a673f1ef30d4d55d471f7d63db/QueryResult.jar
+19/07/16 16:06:53 INFO tool.ImportTool: Destination directory /user/hive/warehouse/t351p_tmp1 is not present, hence not deleting.
+19/07/16 16:06:53 INFO mapreduce.ImportJobBase: Beginning query import.
+19/07/16 16:06:53 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
+19/07/16 16:06:53 INFO manager.SqlManager: Executing SQL statement: select MANDT, STRAT, ZAEHL, ZEIEH, LEIEH, ZYKZT, ZYKLS, OFFZT, OFFLS, HIERA, PUFFP, PUFFN, PERKN, EROEF from SOURCE_DB.T351P  where  (1 = 0) 
+19/07/16 16:06:53 INFO manager.SqlManager: Executing SQL statement: select MANDT, STRAT, ZAEHL, ZEIEH, LEIEH, ZYKZT, ZYKLS, OFFZT, OFFLS, HIERA, PUFFP, PUFFN, PERKN, EROEF from SOURCE_DB.T351P  where  (1 = 0) 
+19/07/16 16:06:53 INFO manager.SqlManager: Executing SQL statement: select MANDT, STRAT, ZAEHL, ZEIEH, LEIEH, ZYKZT, ZYKLS, OFFZT, OFFLS, HIERA, PUFFP, PUFFN, PERKN, EROEF from SOURCE_DB.T351P  where  (1 = 0) 
+19/07/16 16:06:54 INFO hive.metastore: Trying to connect to metastore with URI thrift://domain0.domain1.cloud:9083
+19/07/16 16:06:54 INFO hive.metastore: Opened a connection to metastore, current connections: 1
+19/07/16 16:06:54 INFO hive.metastore: Connected to metastore.
+19/07/16 16:06:54 INFO hive.metastore: Closed a connection to metastore, current connections: 0
+19/07/16 16:06:54 INFO hive.metastore: Trying to connect to metastore with URI thrift://domain0.domain1.cloud:9083
+19/07/16 16:06:54 INFO hive.metastore: Opened a connection to metastore, current connections: 1
+19/07/16 16:06:54 INFO hive.metastore: Connected to metastore.
+19/07/16 16:06:55 INFO hive.metastore: Closed a connection to metastore, current connections: 0
+19/07/16 16:06:55 INFO hive.metastore: Trying to connect to metastore with URI thrift://domain0.domain1.cloud:9083
+19/07/16 16:06:55 INFO hive.metastore: Opened a connection to metastore, current connections: 1
+19/07/16 16:06:55 INFO hive.metastore: Connected to metastore.
+19/07/16 16:06:55 INFO hive.HiveManagedMetadataProvider: Creating a managed Hive table named: t351p_tmp1
+19/07/16 16:06:55 INFO hive.metastore: Closed a connection to metastore, current connections: 0
+19/07/16 16:06:55 INFO hive.metastore: Trying to connect to metastore with URI thrift://domain0.domain1.cloud:9083
+19/07/16 16:06:55 INFO hive.metastore: Opened a connection to metastore, current connections: 1
+19/07/16 16:06:55 INFO hive.metastore: Connected to metastore.
+19/07/16 16:06:56 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+19/07/16 16:06:56 INFO client.ConfiguredRMFailoverProxyProvider: Failing over to rm233
+19/07/16 16:07:01 INFO db.DBInputFormat: Using read commited transaction isolation
+19/07/16 16:07:01 INFO mapreduce.JobSubmitter: number of splits:1
+19/07/16 16:07:01 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1562250744583_0370
+19/07/16 16:07:01 INFO impl.YarnClientImpl: Submitted application application_1562250744583_0370
+19/07/16 16:07:01 INFO mapreduce.Job: The url to track the job: http://domain0.domain1.cloud:8088/proxy/application_1562250744583_0370/
+19/07/16 16:07:01 INFO mapreduce.Job: Running job: job_1562250744583_0370
+19/07/16 16:07:09 INFO mapreduce.Job: Job job_1562250744583_0370 running in uber mode : false
+19/07/16 16:07:09 INFO mapreduce.Job:  map 0% reduce 0%
+19/07/16 16:07:21 INFO mapreduce.Job:  map 100% reduce 0%
+19/07/16 16:07:21 INFO mapreduce.Job: Job job_1562250744583_0370 completed successfully
+19/07/16 16:07:21 INFO mapreduce.Job: Counters: 30
+	File System Counters
+		FILE: Number of bytes read=0
+		FILE: Number of bytes written=253068
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=17231
+		HDFS: Number of bytes written=8366
+		HDFS: Number of read operations=48
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=10
+	Job Counters 
+		Launched map tasks=1
+		Other local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=25335
+		Total time spent by all reduces in occupied slots (ms)=0
+		Total time spent by all map tasks (ms)=8445
+		Total vcore-milliseconds taken by all map tasks=8445
+		Total megabyte-milliseconds taken by all map tasks=25943040
+	Map-Reduce Framework
+		Map input records=88
+		Map output records=88
+		Input split bytes=87
+		Spilled Records=0
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=125
+		CPU time spent (ms)=4570
+		Physical memory (bytes) snapshot=513564672
+		Virtual memory (bytes) snapshot=4635860992
+		Total committed heap usage (bytes)=688914432
+	File Input Format Counters 
+		Bytes Read=0
+	File Output Format Counters 
+		Bytes Written=0
+19/07/16 16:07:21 INFO mapreduce.ImportJobBase: Transferred 8.1699 KB in 25.0939 seconds (333.3877 bytes/sec)
+19/07/16 16:07:21 INFO mapreduce.ImportJobBase: Retrieved 88 records.
