@@ -2,6 +2,7 @@ import os
 import shutil
 import csv
 import subprocess
+import time
 from sqoop_utils import helpers, script_utils
 
 HOME = os.path.expanduser("~")
@@ -32,8 +33,8 @@ def load_config():
         return helpers.read_json(CONFIG_FILE)
 
 def main():
-    skip_standalone = True # TODO: parse from command line
-    skip_custom = False # TODO: parse from command line
+    skip_standalone = False # TODO: parse from command line
+    skip_custom = True # TODO: parse from command line
 
     # Load configuration 
     config_data = load_config()
@@ -45,11 +46,11 @@ def main():
 
     # Initialize CSV report file
     current_millis = int(round(time.time() * 1000))
-    output_file_name = '.'.join(str(current_millis), 'csv')
+    output_file_name = '.'.join([str(current_millis), 'csv'])
     OUTPUT_FILE = os.path.join(REPORTS_DIR, output_file_name)
     csv_fieldnames = ['table_name', 'map_input_records', 'map_output_records']
     with open(OUTPUT_FILE, mode='a+') as csv_file:
-        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+        writer = csv.DictWriter(csv_file, fieldnames=csv_fieldnames)
         writer.writeheader()
     
     # Process configured sqoop jobs
@@ -80,7 +81,7 @@ def main():
 
         # Write to the CSV report file
         with open(OUTPUT_FILE, mode='a+') as csv_file:
-            writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+            writer = csv.DictWriter(csv_file, fieldnames=csv_fieldnames)
             writer.writerow(record)
 
 if __name__ == "__main__":
