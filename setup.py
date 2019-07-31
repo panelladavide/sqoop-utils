@@ -5,7 +5,7 @@ setup(name='sqoop-utils',
       description='Sqoop Utils',
       url='https://github.com/panelladavide/sqoop-utils',
       packages=find_packages(),
-      package_data={'sqoop_utils.cli': ['config_template.json']},
+      package_data={'sqoop_utils.cli': ['jobs.template.json', 'dbs.template.json']},
       entry_points = {
         'console_scripts': ['sqoop_utils_cli=sqoop_utils.cli:main']
       },

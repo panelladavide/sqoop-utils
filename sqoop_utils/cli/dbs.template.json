@@ -1,0 +1,16 @@
+[
+    {
+        "type": "oracle_666",
+        "url": "oracle_url",
+        "driver": "oracle_my_driver",
+        "username": "oracle_username",
+        "password": "oracle_password"
+    },
+    {
+        "type": "sap_666",
+        "url": "sap_url",
+        "driver": "sap_driver",
+        "username": "sap_username",
+        "password": "sap_password"
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "type": "script",
+        "db_ref": "valid reference entry in dbs.json",
+        "description": "Example of standalone shell script",
+        "script_name": "example_sqoop_script.sh"
+    },
+    {
+        "type": "multiscript",
+        "db_ref": "valid reference entry in dbs.json",
+        "description": "Example of file with multiple standalone shell scripts inside",
+        "script_name": "example_of_sqoop_script.sh"
+    },
+    {
+        "type": "cmd",
+        "db_ref": "valid reference entry in dbs.json",
+        "description": "Example of standalone command shell",
+        "cmd": "sqoop --ecc"
+    },
+    {
+        "type": "custom",
+        "db_ref": "valid reference entry in dbs.json",
+        "description": "Example of sqoop script manual configuration",
+        "table_source": "table01",
+        "table_destination": "table01"        
+    },
+    {
+        "type": "standalone_cmd_sap",
+        "description": "TO BE REMOVED: Example of custom standalone command shell",
+        "cmd": "sqoop --ecc"
+    },
+    {
+        "type": "standalone_cmd_oracle",
+        "description": "TO BE REMOVED: Example of custom standalone command shell",
+        "cmd": "sqoop --ecc"
+    }
+]
